@@ -16,7 +16,7 @@ public class Pelicula {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idPelicula;
     private String titulo;
     private String director;
     private String estrellas;

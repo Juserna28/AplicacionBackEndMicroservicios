@@ -54,4 +54,10 @@ public class PeliculaController {
         peliculaService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
+      // Buscar pelícla por titulo
+    @GetMapping("/buscar")
+    public List<Pelicula> buscarPorTitulo(@RequestParam String titulo) {
+    return peliculaService.buscarPorTitulo(titulo);
+    }
+
 }
