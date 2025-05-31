@@ -1,9 +1,15 @@
 package com.peliculasservice.peliculasservice.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "paises")
+@Table(name = "pais")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class Pais {
     @Id
