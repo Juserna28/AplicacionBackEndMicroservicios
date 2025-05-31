@@ -11,60 +11,22 @@ public class Pelicula {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private String director;
-    private LocalDate releaseDate;
-    private String listedIn;
+    private LocalDate date_added;
+    private Integer release_year;
+    private String duration;
+    private String listed_in;
     private String description;
 
-    // Getters y Setters
+    @ManyToOne
+    @JoinColumn(name = "id_pais")
+    private Pais pais;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "id_rating")
+    private Rating rating;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "id_tipo")
+    private TipoPelicula tipoPelicula;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public LocalDate getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public String getListedIn() {
-        return listedIn;
-    }
-
-    public void setListedIn(String listedIn) {
-        this.listedIn = listedIn;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    
 }
