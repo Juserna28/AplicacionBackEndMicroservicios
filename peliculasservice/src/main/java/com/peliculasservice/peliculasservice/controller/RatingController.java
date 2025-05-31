@@ -11,9 +11,9 @@ import java.util.List;
 @RequestMapping("/api/rating")
 public class RatingController {
 
-    private final RatingController ratingService;
+    private final RatingService ratingService;
 
-    public RatingController(RatingController ratingService) {
+    public RatingController(RatingService ratingService) {
         this.ratingService = ratingService;
     }
 
