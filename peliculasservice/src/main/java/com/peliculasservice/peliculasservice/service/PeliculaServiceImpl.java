@@ -2,12 +2,10 @@ package com.peliculasservice.peliculasservice.service;
 
 import com.peliculasservice.peliculasservice.entity.Pelicula;
 import com.peliculasservice.peliculasservice.repository.PeliculaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 
 public class PeliculaServiceImpl implements PeliculaService {
     
