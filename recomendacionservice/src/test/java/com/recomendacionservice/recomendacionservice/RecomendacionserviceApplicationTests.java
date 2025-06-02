@@ -1,10 +1,10 @@
-package com.Recomendacion.Recomendacion;
+package com.recomendacionservice.recomendacionservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RecomendacionApplicationTests {
+class RecomendacionserviceApplicationTests {
 
 	@Test
 	void contextLoads() {
