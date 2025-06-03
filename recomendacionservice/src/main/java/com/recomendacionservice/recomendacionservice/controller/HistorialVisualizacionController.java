@@ -18,7 +18,7 @@ public class HistorialVisualizacionController {
         this.historialService = historialService;
     }
 
-    //Obtener todo el historial
+    // Obtener todo el historial
     @GetMapping
     public List<historial_visualizacion> listarTodo() {
         return historialService.obtenerTodo();
@@ -32,28 +32,29 @@ public class HistorialVisualizacionController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    //Buscar por usuario (nombre)
+    // Buscar por usuario (nombre)
     @GetMapping("/usuario")
     public List<historial_visualizacion> obtenerPorUsuario(@RequestParam String nombre) {
         return historialService.obtenerPorUsuario(nombre);
     }
 
-    //Buscar por id película
+    // Buscar por id película
     @GetMapping("/pelicula")
     public List<historial_visualizacion> obtenerPorPelicula(@RequestParam Long id) {
         return historialService.obtenerPorPelicula(id);
     }
 
-    //Crear un registro en el historial
+    // Crear un registro en el historial
     @PostMapping
-    public ResponseEntity<historial_visualizacion> crear(@RequestBody historial_visualizacion historial) {
-        historial_visualizacion creado = historialService.guardar(historial);
-        return ResponseEntity.status(201).body(creado);
+    public ResponseEntity<historial_visualizacion> guardar(@RequestBody historial_visualizacion historial) {
+        historial_visualizacion guardado = historialService.guardar(historial);
+        return ResponseEntity.ok(guardado);
     }
 
-    //Actualizar historial por ID
+    // Actualizar historial por ID
     @PutMapping("/{id}")
-    public ResponseEntity<historial_visualizacion> actualizar(@PathVariable Long id, @RequestBody historial_visualizacion historial) {
+    public ResponseEntity<historial_visualizacion> actualizar(@PathVariable Long id,
+            @RequestBody historial_visualizacion historial) {
         Optional<historial_visualizacion> existente = historialService.obtenerPorId(id);
         if (existente.isPresent()) {
             historial.setId(id);
@@ -64,7 +65,7 @@ public class HistorialVisualizacionController {
         }
     }
 
-    //Eliminar historial por ID
+    // Eliminar historial por ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         Optional<historial_visualizacion> existente = historialService.obtenerPorId(id);

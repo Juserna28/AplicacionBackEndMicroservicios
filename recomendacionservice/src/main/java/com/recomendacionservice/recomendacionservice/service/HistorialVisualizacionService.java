@@ -11,6 +11,7 @@ import java.util.Optional;
 public class HistorialVisualizacionService {
 
     private final HistorialVisualizacionRepository historialRepository;
+    
 
     public HistorialVisualizacionService(HistorialVisualizacionRepository historialRepository) {
         this.historialRepository = historialRepository;

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "peliculas")
 
@@ -43,9 +45,9 @@ public class Pelicula {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(name = "id_tipo")
-    private Long idTipo;
-
+    @ManyToOne
+    @JoinColumn(name = "id_tipo")
+    private TipoPelicula tipoPelicula;
 
     // Relación con historial
     @OneToMany(mappedBy = "pelicula", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -55,7 +57,7 @@ public class Pelicula {
     public Pelicula() {
     }
 
-    //Getters y Setters
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -88,7 +90,6 @@ public class Pelicula {
         this.anio = anio;
     }
 
-
     public String getDuracion() {
         return duracion;
     }
@@ -97,7 +98,6 @@ public class Pelicula {
         this.duracion = duracion;
     }
 
-
     public List<historial_visualizacion> getHistorial() {
         return historial;
     }
@@ -105,4 +105,13 @@ public class Pelicula {
     public void setHistorial(List<historial_visualizacion> historial) {
         this.historial = historial;
     }
+
+    public TipoPelicula getTipoPelicula() {
+        return tipoPelicula;
+    }
+
+    public void setTipoPelicula(TipoPelicula tipoPelicula) {
+        this.tipoPelicula = tipoPelicula;
+    }
+
 }
